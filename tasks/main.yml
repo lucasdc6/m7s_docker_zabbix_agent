@@ -1,0 +1,49 @@
+---
+- name: start zabbix agent
+  docker_container:
+    name: dockbix-agent-xxl
+    image: "monitoringartist/dockbix-agent-xxl-limited:{{ m7s_dockbix_agent_xxl_version }}"
+    restart_policy: unless-stopped
+    privileged: yes
+    ports:
+      - 10050:10050
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /:/rootfs:ro
+    env:
+      ZA_Alias: "{{ m7s_za_alias | default(omit) }}"
+      ZA_BufferSend: "{{ m7s_za_buffer_send | default(omit) }}"
+      ZA_BufferSize: "{{ m7s_za_buffer_size | default(omit) }}"
+      ZA_DebugLevel: "{{ m7s_za_debug_level | default(omit) }}"
+      ZA_EnableRemoteCommands: "{{ m7s_za_enable_remote_commands | default(omit) }}"
+      ZA_HostMetadata: "{{ m7s_za_host_metadata | default(omit) }}"
+      ZA_HostMetadataItem: "{{ m7s_za_host_metadata_item | default(omit) }}"
+      ZA_Hostname: "{{ m7s_za_hostname | default(omit) }}"
+      ZA_HostnameItem: "{{ m7s_za_hostname_item | default(omit) }}"
+      ZA_Include: "{{ m7s_za_include | default(omit) }}"
+      ZA_ListenIP: "{{ m7s_za_listen_ip | default(omit) }}"
+      ZA_ListenPort: "{{ m7s_za_listen_port | default(omit) }}"
+      ZA_LogFile: "{{ m7s_za_log_file | default(omit) }}"
+      ZA_LogFileSize: "{{ m7s_za_log_file_size | default(omit) }}"
+      ZA_LogRemoteCommands: "{{ m7s_za_log_remote_commands | default(omit) }}"
+      ZA_MaxLinesPerSecond: "{{ m7s_za_max_lines_per_second | default(omit) }}"
+      ZA_PidFile: "{{ m7s_za_pid_file | default(omit) }}"
+      ZA_RefreshActiveChecks: "{{ m7s_za_refresh_active_checks | default(omit) }}"
+      ZA_Server: "{{ m7s_za_server | default(omit) }}"
+      ZA_ServerActive: "{{ m7s_za_server_active | default(omit) }}"
+      ZA_SourceIP: "{{ m7s_za_source_ip | default(omit) }}"
+      ZA_StartAgents: "{{ m7s_za_start_agents | default(omit) }}"
+      ZA_Timeout: "{{ m7s_za_timeout | default(omit) }}"
+      ZA_TLSAccept: "{{ m7s_za_tls_accept | default(omit) }}"
+      ZA_TLSCAFile: "{{ m7s_za_tls_ca_file | default(omit) }}"
+      ZA_TLSCertFile: "{{ m7s_za_tls_cert_file | default(omit) }}"
+      ZA_TLSConnect: "{{ m7s_za_tls_connect | default(omit) }}"
+      ZA_TLSCRLFile: "{{ m7s_za_tls_crl_file | default(omit) }}"
+      ZA_TLSKeyFile: "{{ m7s_za_tls_key_file | default(omit) }}"
+      ZA_TLSPSKFile: "{{ m7s_za_tls_psk_file | default(omit) }}"
+      ZA_TLSPSKIdentity: "{{ m7s_za_tls_psk_identity | default(omit) }}"
+      ZA_TLSServerCertIssuer: "{{ m7s_za_tls_server_cert_issuer | default(omit) }}"
+      ZA_TLSServerCertSubject: "{{ m7s_za_tls_server_cert_subject | default(omit) }}"
+      ZA_UnsafeUserParameters: "{{ m7s_za_unsafe_user_parameters | default(omit) }}"
+      ZA_User: "{{ m7s_za_user | default(omit) }}"
+      ZA_UserParameter: "{{ m7s_za_user_parameter | default(omit) }}"

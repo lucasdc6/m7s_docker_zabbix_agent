@@ -1,0 +1,25 @@
+---
+
+galaxy_info:
+  role_name: m7s_docker_zabbix_agent
+  author: 'Lucas Di Cunzolo'
+  description: 'Install zabbix monitoring for docker'
+  company: 'Mikroways'
+  license: 'GPL-3.0'
+  min_ansible_version: '2.0.0'
+
+  platforms:
+
+    - name: 'Ubuntu'
+      versions: [ 'all' ]
+
+    - name: 'Debian'
+      versions: [ 'all' ]
+
+    - name: 'RedHat'
+      versions: [ 'all' ]
+
+  galaxy_tags:
+    - docker
+    - zabbix
+    - monitoring
