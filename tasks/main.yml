@@ -1,12 +1,13 @@
 ---
 - name: start zabbix agent
   docker_container:
-    name: dockbix-agent-xxl
+    name: "{{ m7s_dockbix_container_name }}"
     image: "monitoringartist/dockbix-agent-xxl-limited:{{ m7s_dockbix_agent_xxl_version }}"
+    hostname: "{{ m7s_dockbix_container_hostname }}"
     restart_policy: unless-stopped
     privileged: yes
     ports:
-      - 10050:10050
+      - "{{ m7s_dockbix_container_port }}:10050"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /:/rootfs:ro

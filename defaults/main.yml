@@ -1,3 +1,6 @@
 ---
-m7s_dockbix_agent_xxl_version: latest
-m7s_za_server: 0.0.0.0/0
+m7s_dockbix_agent_xxl_version: "latest"
+m7s_dockbix_container_name: "dockbix-agent-xxl"
+m7s_dockbix_container_hostname: "{{ ansible_hostname }}"
+m7s_dockbix_container_port: "10050"
+m7s_za_server: "0.0.0.0/0"
