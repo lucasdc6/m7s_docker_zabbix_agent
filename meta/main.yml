@@ -16,8 +16,8 @@ galaxy_info:
     - name: 'Debian'
       versions: [ 'all' ]
 
-    - name: 'RedHat'
-      versions: [ '7' ]
+    - name: 'EL'
+      versions: [ 'all' ]
 
   galaxy_tags:
     - docker
